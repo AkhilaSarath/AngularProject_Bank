@@ -6,14 +6,16 @@
        <form action="">
         <div class="container border-light bg-grey">
             <div class="form-outline">
-                <input (change)="acnoChange($event)" type="text" id="u1" name="username" class="form-control mt-5 mb-4 w-75" [placeholder]="data1">
+                <input #acno type="text" id="u1" name="username" class="form-control mt-5 mb-4 w-75" [placeholder]="data1">
             </div>
             <div class="form-outline">
-                <input (change)="pswordChange($event)" type="password" id="p1" name="password" class="form-control mb-4 w-75" placeholder="password">
+                <input #psw type="password" id="p1" name="password" class="form-control mb-4 w-75" placeholder="password">
             </div>
             <div class="form-outline">
-                <button type="button" (click)="login()" class="btn btn-primary  gradient-custom-2 w-75">Login</button>
+                <button (click)="login(acno,psw)"  type="button" class="btn btn-primary  gradient-custom-2 w-75">Login</button>
             </div>
+            <p class="mt-2 text-white">don't have account?<a style="text-decoration
+            :none;" href="">create a account</a></p>
         </div>    
        </form>
     </div>

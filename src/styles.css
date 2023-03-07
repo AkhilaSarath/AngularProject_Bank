@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background: url("./assets/images/financial-banking-technology-concept_387612-31.avif") ;
+
+    background-size: cover;
+    
+}
+header{
+    height:50px;
+    background-color: rgb(172, 171, 173);
+
+}
+footer{
+    height:50px;
+    background-color: rgb(172, 171, 173);
+     position:fixed;
+    bottom:0;
+    width:100%;
+
+}
+.heading{
+    color: rgb(55, 55, 100);
+}
+

@@ -6,16 +6,17 @@
        <form action="">
         <div class="container border-light bg-grey">
             <div class="form-outline">
-                <input #acno type="text" id="u1" name="username" class="form-control mt-5 mb-4 w-75" [placeholder]="data1">
+                <input [(ngModel)]="acno" type="text" id="u1" name="username" class="form-control mt-5 mb-4 w-75" [placeholder]="data1">
             </div>
             <div class="form-outline">
-                <input #psw type="password" id="p1" name="password" class="form-control mb-4 w-75" placeholder="password">
+                <input [(ngModel)]="psw" type="password" id="p1" name="password" class="form-control mb-4 w-75" placeholder="password">
             </div>
             <div class="form-outline">
-                <button (click)="login(acno,psw)"  type="button" class="btn btn-primary  gradient-custom-2 w-75">Login</button>
+                <button (click)="login()"  type="button" class="btn btn-primary  gradient-custom-2 w-75">Login</button>
             </div>
             <p class="mt-2 text-white">don't have account?<a style="text-decoration
-            :none;" href="">create a account</a></p>
+            :none;" routerLink="register" href="">create a account</a></p>
+            <!-- we can also specify register in href attribute too -->
         </div>    
        </form>
     </div>

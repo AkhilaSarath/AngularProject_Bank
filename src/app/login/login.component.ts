@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -10,73 +12,45 @@ export class LoginComponent {
   data1 = "Enter ac no"
 
   // acno=" " or
-  // acno: any
-  // psword: any
+  acno: any
+  psw: any
 
-  userDetails: any = {
-    1000: { username: "anu", acno: 1000, password: "qwerty", balance: 0 },
-    1001: { username: "amal", acno: 1001, password: "xcv", balance: 0 },
-    1003: { username: "arun", acno: 1003, password: "567", balance: 0 },
-    1004: { username: "mega", acno: 1004, password: "ccc", balance: 0 }
+  // userDetails: any = {
+  //   1000: { username: "anu", acno: 1000, password: "qwerty", balance: 0 },
+  //   1001: { username: "amal", acno: 1001, password: "xcv", balance: 0 },
+  //   1003: { username: "arun", acno: 1003, password: "567", balance: 0 },
+  //   1004: { username: "mega", acno: 1004, password: "ccc", balance: 0 }
 
 
-  }
-  constructor() { }
+  // }
+  constructor(private router:Router,private ds:DataService) { }  //dependancy injection
   ngOnInit():void {
 
   }
 
 
 
-  // login() {
-  //   // alert('login worked')
-  //   var acnum = this.acno //repeated this call makes the code lengthy
-  //   var userDetails: any = this.userDetails
-  //   var psword = this.psword
-  //   if (acnum in userDetails) {
-  //     if (psword == userDetails[acnum]["password"]) {
-  //       alert('login succes')
-  //     }
-  //     else {
-  //       alert('incurrect password')
-  //     }
-  //   }
-  //   else {
-  //     alert('incurrect ac no')
-  //   }
-  // }
-
-//   acnoChange(event: any) {  //argument must be event
-//     // console.log(event.target.value);
-//     this.acno = event.target.value  //when there is no data every time this must be declared as instance
-
-//     console.log(this.acno)
-
-//   }
-//   pswordChange(event: any) {
-//     this.psword = event.target.value
-//     console.log(this.psword)
-//   }
-
-
-login(acnum:any,psw:any) {
-  console.log(acnum.value,psw.value);
-var acnum = acnum.value
-var psw=psw.value
-var userDetails=this.userDetails
-//   // alert('login worked')
-//                              //repeated this call makes the code lengthy
-
-  if (acnum in userDetails) {
-    if (psw == userDetails[acnum]["password"]) {
-      alert('login succes')
+  login() {
+    // alert('login worked')
+  var acnum = this.acno //repeated this call makes the code lengthy
+    var userDetails: any = this.ds.userDetails
+  var psw = this.psw
+    if (acnum in userDetails) {
+      if (psw == userDetails[acnum]["password"]) {
+        alert('login succes')
+        //redirection
+        this.router.navigateByUrl("dashboard")
+      }
+      else {
+        alert('incurrect password')
+      }
     }
     else {
-      alert('incurrect password')
+      alert('incurrect ac no')
     }
   }
-  else {
-    alert('incurrect ac no')
-  }
- }
+
+
+
+
 }

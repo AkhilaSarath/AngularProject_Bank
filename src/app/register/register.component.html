@@ -1,0 +1,29 @@
+
+<div class="container  mt-3  w-50  ">
+    <div class="text-center mt-3">
+        <h3 class="text-primary">{{data}}</h3>
+    </div >
+       <form action="">
+        <div class="container border-light bg-grey">
+            <div class="form-outline">
+                <input [(ngModel)]="acno" type="text" id="ac" name="acno" class="form-control mt-5 mb-4 w-75" placeholder="Enter account number">
+            </div>
+
+
+            <div class="form-outline">
+                <input [(ngModel)]="uname" type="text" id="u1" name="username" class="form-control  mb-4 w-75" placeholder="enter username">
+            </div>
+
+            
+            <div class="form-outline">
+                <input [(ngModel)]="psw" type="password" id="p1" name="password" class="form-control mb-4 w-75" placeholder="password">
+            </div>
+
+            <div class="form-outline">
+                <button  (click)="register()" type="button" class="btn btn-primary  gradient-custom-2 w-75">Sign up</button>
+            </div>
+          
+         
+        </div>    
+       </form>
+    </div>

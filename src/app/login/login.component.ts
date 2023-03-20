@@ -28,9 +28,11 @@ export class LoginComponent {
 
   }
 
+  //model form
+
     loginForm=this.fb.group({
-      acno:['',[Validators.required,Validators.pattern('[0-9]+[]')]],
-      psw:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]')]]
+      acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+      psw:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]]
     })
 
 

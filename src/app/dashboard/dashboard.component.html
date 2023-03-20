@@ -1,74 +1,97 @@
 <div class="text-center mt-3">
     <h1 class="text-center text-danger">Welcome {{user}}</h1>
 </div>
+<div class="text-end">
+    <button class="btn btn-primary me-5" (click)="logout()">Logout</button>
+</div>
 
 <div class="row">
     <div class="col-6 p-3">
-        <div class="container mt-3 w-50 border-light bg-grey">
-    
+        <div class="container mt-3 w-50 ">
+
             <div class="container border-light bg-grey">
                 <form [formGroup]="depositForm" action="">
-        
-                    <div class="form-group">
-                        <input formControlname="acno" type="text" id="ac" name="acno" class="form-control mt-5 mb-4 "
+                    <div>
+                        <input formControlName="acno" type="text" id="ac" name="acno" class="form-control mt-5 mb-4 "
                             placeholder="Enter account number">
                     </div>
-        
-        
-                    <div class="form-group">
-                        <input formControlname="psw" type="password" id="p1" name="password" class="form-control mb-4 " placeholder="password">
+                    <div *ngIf="this.depositForm.get('acno')?.errors && this.depositForm.get('acno')?.touched" class="text-start ms-2"> <p class="text-danger">Include numbers only</p>
                     </div>
-        
-                    <div class="form-group">
-                        <input formControlname="amnt" type="text" id="amt" name="amount" class="form-control  mb-4 " placeholder="enter amount">
+                    <div>
+                        <input formControlName="psw" type="password" id="pw" name="password"
+                            class="form-control mb-4 " placeholder="password">
                     </div>
-        
-                    <div class="form-group">
-                        <button type="button" (click)="deposit()" class="btn btn-primary  gradient-custom-2  ms-4">Deposit</button>
-        
+                    <div *ngIf="this.depositForm.get('psw')?.errors && this.depositForm.get('psw')?.touched"
+                        class="text-start ms-2">
+                        <p class="text-danger">Include numbers and letters only</p>
+                    </div>
+
+                    
+                    <div>
+                        <input formControlName="amnt" type="text" id="amt" name="amount" class="form-control  mb-4 "
+                            placeholder="enter amount">
+                    </div>
+                    <div *ngIf="this.depositForm.get('amnt')?.errors && this.depositForm.get('amnt')?.touched"
+                        class="text-start ms-2">
+                        <p class="text-danger">Include numbers only</p>
+                    </div>
+
+                    <div>
+                        <button type="button" (click)="deposit()"
+                            class="btn btn-primary  gradient-custom-2  ms-4">Deposit</button>
+
                     </div>
                 </form>
-        
+
             </div>
-           
+
         </div>
     </div>
     <div class="col-6 p-3">
         <div class="container  mt-3  w-50  ">
-    
+
             <div class="container border-light bg-grey">
                 <form [formGroup]="withdrawForm" action="">
-        
-                    <div class="form-group">
-                        <input formControlName="acno1"   type="text" id="ac1" name="acno1" class="form-control mt-5 mb-4 "
+
+                    <div>
+                        <input formControlName="acno1" type="text" id="ac1" name="acno1" class="form-control mt-5 mb-4 "
                             placeholder="Enter account number">
-                            <div *ngif="this.registerForm.get('acno')?.errors && this.registerform.get('acno')?.touched" class="text-start ms-2">
-                                <p class="text-danger">Include numbers only</p>
-                            </div>
                     </div>
-        
-        
-                    <div class="form-group">
-                        <input formControlName="psw1" type="password" id="pw1" name="password1" class="form-control mb-4 " placeholder="password">
+                    <div *ngIf="this.withdrawForm.get('acno1')?.errors && this.withdrawForm.get('acno1')?.touched"
+                        class="text-start ms-2">
+                        <p class="text-danger">Include numbers only</p>
                     </div>
-        
-                    <div class="form-group">
-                        <input formControlName="amnt1"  type="text" id="amt1" name="amount1" class="form-control  mb-4 " placeholder="enter amount">
+
+
+                    <div>
+                        <input formControlName="psw1" type="password" id="pw1" name="password1"
+                            class="form-control mb-4 " placeholder="password">
                     </div>
-        
-                    <div class="form-group">
-                        
-                        <button (click)="withdraw()" type="button" class="btn btn-primary  gradient-custom-2  ms-4">Withdraw</button>
+                    <div *ngIf="this.withdrawForm.get('psw1')?.errors && this.withdrawForm.get('psw1')?.touched"
+                        class="text-start ms-2">
+                        <p class="text-danger">Include numbers and letters only</p>
+                    </div>
+
+                    <div>
+                        <input formControlName="amnt1" type="text" id="amt1" name="amount1" class="form-control  mb-4 "
+                            placeholder="enter amount">
+                    </div>
+                    <div *ngIf="this.withdrawForm.get('amnt1')?.errors && this.withdrawForm.get('amnt1')?.touched"
+                        class="text-start ms-2">
+                        <p class="text-danger">Include numbers only</p>
+                    </div>
+
+                    <div>
+
+                        <button (click)="withdraw()" type="button"
+                            class="btn btn-primary  gradient-custom-2  ms-4">Withdraw</button>
                     </div>
                 </form>
-                      
+
             </div>
-           
+
         </div>
     </div>
 </div>
-<h4 class="align-middle"><a href="" routerLink="/transaction" class="text-white ">view Transaction History</a></h4> 
+<h4 class="align-middle"><a href="" routerLink="/transaction" class="text-white ">view Transaction History</a></h4>
 <!-- href doesn't support backpathing in some system -->
-
-
-
